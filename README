@@ -1,0 +1,3 @@
+A NodeJS and Websocket based application to receiver twitter streams based on keyword. 
+This also has a customized option to stop and start the stream to see tweets whenever you want.
+This is based on NTwitter node module of nodejs.

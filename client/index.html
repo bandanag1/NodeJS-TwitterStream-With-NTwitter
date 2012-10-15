@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+		"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Twitter Streaming Demo</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.tmpl.js"></script>
+	<script type="text/javascript" src="js/knockout-latest.js"></script>
+	<script type="text/javascript" src="js/socket.io.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+    
+	<!-- <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script> -->
+
+	<script type="text/html" id="tweet">
+		<div class="tweet" style="border-width:2px; border-style:solid; background:#ffffff; border-color:#1B91E0;">
+			<div class="tweet-dogear "></div>
+			<div class="tweet-image">
+				<img class="thumbnail-image" data-bind="attr: { src: image }">
+			</div>
+			<div class="tweet-content">
+			<div class="tweet-row">
+				<span class="tweet-user-name">
+					<span class="tweet-screen-name" data-bind="text: user"></span>
+					<span class="tweet-full-name" data-bind="text: name"></span>
+				</span>
+			</div>
+			<div class="tweet-row tweet-text" data-bind="text: text"></div>
+			<div class="tweet-row">
+				<span class="tweet-timestamp" data-bind="text:time"></span>
+			</div>
+			</div>
+		</div>
+	</script>
+</head>
+<body>
+	<div>
+		<table border=1	 width=100% height=100%>
+			<tr height="10px">
+			<td>
+				<br/>
+				<div>
+				Keyword: <input type="text" value="" id="searchInput" size="15" onclick="this.value=''" />
+				<input type="button" value="Show Tweets" onclick="callServer()" /><input type="button" value="Stop" onclick="stopTweets()" />
+				</div>
+				<br />
+			</td></tr>
+			<tr height="340px">
+			<td>
+				<br />
+				<div class="outer-wrap">
+				<div class="outer-container">
+				<div class="totals">Tweets Tracked: <span data-bind="text: total"></span></div>			
+				<div class="tweet-container"  style="overflow:auto;" data-bind="template: { name: &apos;tweet&apos;, foreach: tweets }"></div>
+				</div>
+				</div>
+			</td></tr>
+			<tr height="30px">
+			<td>
+				<div>    
+				<img src="images/twitter-logo.png" />
+				</div>	
+			</td></tr>
+		</table>
+	</div>
+</body></html>
