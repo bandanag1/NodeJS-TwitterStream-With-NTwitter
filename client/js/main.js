@@ -23,7 +23,7 @@ var streamClient = {
     tweetThreshold: 400
 };
 $(function() {
-    socket = io.connect('http://10.20.4.68:8559');
+    socket = io.connect('http://yourIPAddress:8559');
     socket.on('connect', function () {	
 	socket.on('newTweet', function (tweet) {
             if(streamClient.tweets().filter(function(x) { return x.id === tweet.id; }).length === 0) {
